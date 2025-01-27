@@ -13,6 +13,7 @@ import lombok.experimental.FieldDefaults;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
+@Builder
 public class Stats {
 
     @Id

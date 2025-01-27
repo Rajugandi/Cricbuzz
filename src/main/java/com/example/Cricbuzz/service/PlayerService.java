@@ -50,7 +50,7 @@ public class PlayerService {
 
     }
 
-    public List<PlayerResponse> getByGenderAndSpeciality(String gender , String speciality){
+    public List<PlayerResponse> getByGenderAndSpeciality(Gender gender , Speciality speciality){
         List<Player> players =playerRepository.getByGenderAndSpeciality(gender,speciality);
         List<PlayerResponse> playerResponses = new ArrayList<>();
 

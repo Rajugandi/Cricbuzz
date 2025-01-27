@@ -48,7 +48,7 @@ public class PlayerController {
     // get by gender and speciality -> need to return all players with same speciality and gender with custom query
 
     @GetMapping("/gender/{gender}/speciality/{speciality}")
-    public List<PlayerResponse> getByGenderAndSpeciality(@PathVariable String gender, @PathVariable String speciality){
+    public List<PlayerResponse> getByGenderAndSpeciality(@PathVariable Gender gender, @PathVariable Speciality speciality){
         return playerService.getByGenderAndSpeciality(gender,speciality);
 
     }
