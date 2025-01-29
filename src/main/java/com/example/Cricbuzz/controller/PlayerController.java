@@ -9,6 +9,7 @@ import com.example.Cricbuzz.model.Enum.Speciality;
 import com.example.Cricbuzz.model.Player;
 import com.example.Cricbuzz.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,20 +23,19 @@ public class PlayerController {
     @Autowired
     PlayerService playerService;
     @PostMapping
-    public PlayerResponse addPlayer(@RequestBody PlayerRequest playerRequest){
-        return playerService.addPlayer(playerRequest);
+    public ResponseEntity<PlayerResponse> addPlayer(@RequestBody PlayerRequest playerRequest){
+        return new ResponseEntity<>( playerService.addPlayer(playerRequest), HttpStatus.CREATED);
 
     }
 
     @GetMapping("/getById/{id}")
-    public PlayerResponse getPlayerById(@PathVariable int id){
-//        try{
-//            return playerService.getPlayerById(id);
-//
-//        }catch (PlayerNotFoundException p){
-//            return p.getMessage();
-//        }
-        return playerService.getPlayerById(id);
+    public ResponseEntity getPlayerById(@PathVariable int id){
+        try{
+            return new ResponseEntity<>( playerService.getPlayerById(id),HttpStatus.OK);
+        }catch (PlayerNotFoundException p){
+            return new ResponseEntity<>(p.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+//        return playerService.getPlayerById(id);
 
     }
 
