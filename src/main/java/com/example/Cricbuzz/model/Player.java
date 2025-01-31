@@ -23,6 +23,7 @@ public class Player {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     String name;
+    String email;
     int age;
 
     @Enumerated(EnumType.STRING)

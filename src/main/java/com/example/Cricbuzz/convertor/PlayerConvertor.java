@@ -13,6 +13,7 @@ public class PlayerConvertor {
                 .name(playerRequest.getName())
                 .speciality(playerRequest.getSpeciality())
                 .gender(playerRequest.getGender())
+                .email(playerRequest.getEmail())
                 .build();
     }
 

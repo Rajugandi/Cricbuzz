@@ -7,6 +7,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,6 +18,7 @@ import java.util.List;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
+@Builder
 public class CricketMatch {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +34,6 @@ public class CricketMatch {
     @JoinTable(name = "match_team",
     joinColumns = @JoinColumn(name = "match_id"),
     inverseJoinColumns = @JoinColumn(name = "team_id"))
-            @JsonManagedReference
-    List<Team> teams;
+    @JsonManagedReference
+    List<Team> teams ;
 }

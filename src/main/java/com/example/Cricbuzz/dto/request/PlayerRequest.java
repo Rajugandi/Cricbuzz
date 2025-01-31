@@ -15,6 +15,7 @@ import lombok.Setter;
 
 public class PlayerRequest {
     String name;
+    String email;
     int age;
     Speciality speciality;
     Gender gender;
